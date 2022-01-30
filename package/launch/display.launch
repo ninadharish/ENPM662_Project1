@@ -1,0 +1,28 @@
+<launch>
+  <arg
+    name="model" />
+  <param
+    name="robot_description"
+<<<<<<< HEAD
+    textfile="$(find mini_robot_3)/urdf/mini_robot_3.urdf" />
+=======
+    textfile="$(find enpm662_proj1_urdf)/urdf/enpm662_proj1_urdf.urdf" />
+>>>>>>> 6051b62428381f52b93de25f4e931045f8356cae
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+<<<<<<< HEAD
+    args="-d $(find mini_robot_3)/urdf.rviz" />
+=======
+    args="-d $(find enpm662_proj1_urdf)/urdf.rviz" />
+>>>>>>> 6051b62428381f52b93de25f4e931045f8356cae
+</launch>

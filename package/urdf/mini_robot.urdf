@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mini_robot">
+  <!--transmission name="dummy_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="dummy_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="dummy_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission-->
+  <transmission name="Rear_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rear_drive_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="left_front_steer_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_front_steer_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_front_steer_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="right_front_steer_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_front_steer_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_front_steer_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="left_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_wheel_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <transmission name="right_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+      <joint name="right_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_wheel_motor">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  <link
+    name="dummy_link">
+  </link>
+  <joint
+    name="dummy_joint"
+    type="fixed">
+    <parent
+      link="dummy_link"/>
+    <child
+      link="chassis"/>
+  </joint>
+  
+
+  <link
+    name="chassis">
+    <inertial>
+      <origin
+        xyz="0.000799761683914332 0.0954306825939049 -9.30796864283394E-18"
+        rpy="0 0 0" />
+      <mass
+        value="93.1848581866648" />
+      <inertia
+        ixx="2.28713334560461"
+        ixy="0.00487069017117028"
+        ixz="9.01317708382456E-17"
+        iyy="9.24306451040249"
+        iyz="-8.15739421984855E-18"
+        izz="7.51842340533568" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rear_drive">
+    <inertial>
+      <origin
+        xyz="0 0 3.17493310854711E-16"
+        rpy="0 0 0" />
+      <mass
+        value="5.25111094738319" />
+      <inertia
+        ixx="0.605832013171467"
+        ixy="0"
+        ixz="3.64001219073864E-17"
+        iyy="0.605832013171467"
+        iyz="-6.48332655293154E-18"
+        izz="0.0255331022594418" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/rear_drive.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/rear_drive.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_drive_joint"
+    type="continuous">
+    <origin
+      xyz="-0.254 0 0.0254"
+      rpy="-1.5708 -0.39418 3.1416" />
+    <parent
+      link="chassis" />
+    <child
+      link="rear_drive" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="left_front_steer">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0.0206107556410369 0.0402758603427741"
+        rpy="0 0 0" />
+      <mass
+        value="0.0733713578442024" />
+      <inertia
+        ixx="0.000110146477694354"
+        ixy="-1.17261123635517E-20"
+        ixz="5.46071553183007E-20"
+        iyy="9.72440317091055E-05"
+        iyz="2.30486601099536E-05"
+        izz="1.88194791385947E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/left_front_steer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/left_front_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_steer_joint"
+    type="revolute">
+    <origin
+      xyz="0.254 0.27305 0.012573"
+      rpy="1.5708 0 -3.1333" />
+    <parent
+      link="chassis" />
+    <child
+      link="left_front_steer" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.436"
+      upper="0.436"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-7.7715611723761E-16 -5.55111512312578E-17 -0.0398936415413802"
+        rpy="0 0 0" />
+      <mass
+        value="2.43249992415545" />
+      <inertia
+        ixx="0.00755250482076538"
+        ixy="9.41827845452877E-20"
+        ixz="4.68239813242177E-18"
+        iyy="0.00755250482076538"
+        iyz="-1.39633381354871E-18"
+        izz="0.0127509821649286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0127 0.029956"
+      rpy="3.1416 0 0.067904" />
+    <parent
+      link="left_front_steer" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="right_front_steer">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 0.0206107556410369 0.040275860342774"
+        rpy="0 0 0" />
+      <mass
+        value="0.0733713578442023" />
+      <inertia
+        ixx="0.000110146477694354"
+        ixy="2.64168400424935E-20"
+        ixz="-9.43647642800494E-20"
+        iyy="9.72440317091055E-05"
+        iyz="2.30486601099536E-05"
+        izz="1.88194791385947E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/right_front_steer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/right_front_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_steer_joint"
+    type="revolute">
+    <origin
+      xyz="0.254 -0.27305 0.012573"
+      rpy="1.5708 0 -0.013511" />
+    <parent
+      link="chassis" />
+    <child
+      link="right_front_steer" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.436"
+      upper="0.436"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="5.3776427755281E-17 2.77555756156289E-16 0.0380860906074777"
+        rpy="0 0 0" />
+      <mass
+        value="2.43249992415545" />
+      <inertia
+        ixx="0.00755250482076537"
+        ixy="-3.68326983157612E-20"
+        ixz="3.17044432157285E-18"
+        iyy="0.00755250482076536"
+        iyz="-5.19739416435239E-18"
+        izz="0.0127509821649285" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mini_robot/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0127 0.031764"
+      rpy="0 0 1.6459" />
+    <parent
+      link="right_front_steer" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>
