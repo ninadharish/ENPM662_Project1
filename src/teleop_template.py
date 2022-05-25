@@ -137,13 +137,7 @@ if __name__=="__main__":
 
     finally:
         pub_right_1.publish(control_turn)
-        # pub_right_2.publish(control_turn)
         pub_left_1.publish(control_turn)
-        # pub_left_2.publish(control_turn)
         pub_move_1.publish(control_speed)  
-        # twist = Twist()
-        # twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
-        # twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
-        # pub.publish(twist)
 
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
