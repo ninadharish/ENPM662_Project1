@@ -67,5 +67,5 @@ rosrun mini_robot teleop_template.py
 👤 **Ninad Harishchandrakar**
 
 * [GitHub](https://github.com/ninadharish)
-* [Email](ninad.harish@gmail.com)
+* [Email](mailto:ninad.harish@gmail.com)
 * [LinkedIn](https://linkedin.com/in/ninadharish)
